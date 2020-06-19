@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marinawave/app/utils/constants.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -8,8 +9,9 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Modular.navigatorKey,
       title: 'Marina Wave',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData.dark().copyWith(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kScaffoldBackgroundColor,
       ),
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,

@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 
-const kGrey = Color(0xF2FFFFFF);
-//const kGreen = Color(0xFF37878C);
-const kGreen = Colors.teal;
-const kRed = Color(0xFF72191C);
-//final kTextColor = Colors.teal.shade900;
-final kTextColor = Colors.black;
-const kIconColor = Colors.black54;
+const kBlue = Color(0xFF111328);
+const kVividBlue = Color(0xFF4A57E0);
+const kLightBlue = Color(0xFF1D1E33);
+const kRed = Color(0xFFEB1555);
+const kGreen = Color(0xFF24D876);
+final kTextColor = Color(0xFF8D8E98);
+final kButtonColor = Color(0xFF4C4F5E);
+final kPrimaryColor = Color(0xFF0A0E21);
+final kScaffoldBackgroundColor = Color(0xFF0A0E21);
+
+const kLabelTextStyle = TextStyle(
+  fontSize: 18.0,
+  color: Color(0xFF8D8E98),
+);
+
+const kNumberTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.w900,
+);
+
+const kLargeButtonTextStyle = TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  color: kGreen,
+);
 
 const kSendButtonTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
@@ -42,6 +60,3 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
-
-const double kMinZoom = 5.0;
-const double kMaxZoom = 19.0;

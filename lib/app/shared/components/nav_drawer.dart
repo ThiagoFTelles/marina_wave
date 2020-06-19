@@ -1,5 +1,6 @@
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:marinawave/app/utils/constants.dart';
 
 class NavDrawer extends StatelessWidget {
 //  final _auth = FirebaseAuth.instance;
@@ -56,7 +57,7 @@ class NavDrawer extends StatelessWidget {
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.blueAccent,
+              color: kVividBlue,
             ),
           ),
           ListTile(
