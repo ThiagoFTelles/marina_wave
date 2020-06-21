@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   syncfusion_flutter_gauges: ^18.1.56
-  flutter_svg:
   dio: ^3.0.9
   flutter_mobx: ^1.1.0
   mobx: ^1.2.1
@@ -37,3 +36,4 @@ vars:
 scripts: 
     mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
     mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
+    mobx: flutter pub run build_runner watch --delete-conflicting-outputs

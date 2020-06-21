@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class PageHeader extends StatelessWidget {
   const PageHeader({Key key, this.scaffoldKey}) : super(key: key);
@@ -20,11 +20,15 @@ class PageHeader extends StatelessWidget {
               size: 30,
             ),
           ),
-          SvgPicture.asset(
-            'assets/images/marina_wave_logo.svg',
-            color: Colors.white,
-            semanticsLabel: 'Marina Wave Logo',
-            height: 30,
+          FlatButton(
+            onPressed: () {
+              Modular.to.pushNamed("/");
+            },
+            child: Image.asset(
+              'assets/images/logo.png',
+              height: 30,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

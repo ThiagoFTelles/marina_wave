@@ -1,9 +1,7 @@
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:marinawave/app/utils/constants.dart';
 
 class NavDrawer extends StatelessWidget {
-//  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -61,14 +59,34 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.directions_bus),
+            leading: Icon(Icons.insert_chart),
             title: Text(
-              'Meus transportes',
+              'Relatórios',
               style: TextStyle(
                 fontSize: 17,
               ),
             ),
             onTap: () => {},
+          ),
+          ListTile(
+            leading: Icon(Icons.attach_money),
+            title: Text(
+              'Financeiro',
+              style: TextStyle(
+                fontSize: 17,
+              ),
+            ),
+            onTap: () => {Navigator.pop(context)},
+          ),
+          ListTile(
+            leading: Icon(Icons.grade),
+            title: Text(
+              'Anuncie uma embarcação',
+              style: TextStyle(
+                fontSize: 17,
+              ),
+            ),
+            onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
             leading: Icon(Icons.person_pin),
@@ -81,29 +99,9 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.pop(context)},
           ),
           ListTile(
-            leading: Icon(Icons.attach_money),
-            title: Text(
-              'Carteira',
-              style: TextStyle(
-                fontSize: 17,
-              ),
-            ),
-            onTap: () => {Navigator.pop(context)},
-          ),
-          ListTile(
             leading: Icon(Icons.help),
             title: Text(
               'Ajuda',
-              style: TextStyle(
-                fontSize: 17,
-              ),
-            ),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
-            leading: Icon(Icons.grade),
-            title: Text(
-              'Anuncie uma embarcação',
               style: TextStyle(
                 fontSize: 17,
               ),
