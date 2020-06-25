@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const String URL_BASE = 'https://marinawave.com.br/api';
+//const String URL_BASE = 'http://10.0.2.2:8000/api'; //este IP é o localhost no Android Studio
+
 const kBlue = Color(0xFF111328);
 const kLightBlue = Color(0xFF1D1E33);
 const kVividBlue = Color(0xFF4A57E0);
@@ -12,6 +15,17 @@ const kTextColor = Color(0xFF8D8E98);
 final kButtonColor = Color(0xFF4C4F5E);
 final kPrimaryColor = Color(0xFF0A0E21);
 final kScaffoldBackgroundColor = Color(0xFF0A0E21);
+
+const kSummaryInfoTextStyle = TextStyle(
+  fontSize: 21.0,
+  color: Colors.white,
+);
+
+const kSummaryHeaderTextStyle = TextStyle(
+  color: Colors.lightBlueAccent,
+  fontWeight: FontWeight.bold,
+  fontSize: 30,
+);
 
 const kLabelTextStyle = TextStyle(
   fontSize: 18.0,

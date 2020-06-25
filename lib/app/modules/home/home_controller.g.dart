@@ -8,40 +8,39 @@ part of 'home_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$HomeController on _HomeControllerBase, Store {
-  final _$valueAtom = Atom(name: '_HomeControllerBase.value');
+mixin _$HomeController on _HomeBase, Store {
+  final _$vehiclesAtom = Atom(name: '_HomeBase.vehicles');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  dynamic get vehicles {
+    _$vehiclesAtom.reportRead();
+    return super.vehicles;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set vehicles(dynamic value) {
+    _$vehiclesAtom.reportWrite(value, super.vehicles, () {
+      super.vehicles = value;
     });
   }
 
-  final _$_HomeControllerBaseActionController =
-      ActionController(name: '_HomeControllerBase');
+  final _$_HomeBaseActionController = ActionController(name: '_HomeBase');
 
   @override
-  void increment() {
-    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
-        name: '_HomeControllerBase.increment');
+  dynamic fetchVehicles() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction(
+        name: '_HomeBase.fetchVehicles');
     try {
-      return super.increment();
+      return super.fetchVehicles();
     } finally {
-      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+      _$_HomeBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   String toString() {
     return '''
-value: ${value}
+vehicles: ${vehicles}
     ''';
   }
 }

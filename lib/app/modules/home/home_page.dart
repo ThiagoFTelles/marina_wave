@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marinawave/app/modules/home/components/scanner_area/scanner_area.dart';
-import 'package:marinawave/app/modules/home/components/status_area/status_row.dart';
-import 'package:marinawave/app/shared/components/nav_drawer.dart';
-import 'package:marinawave/app/shared/components/page_header.dart';
 
 import 'home_controller.dart';
 
@@ -21,22 +18,62 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      drawer: NavDrawer(),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 15),
-          child: Column(
-            children: <Widget>[
-              PageHeader(
-                scaffoldKey: _scaffoldKey,
-              ),
-              StatusRow(),
-              ScannerArea(),
-            ],
-          ),
-        ),
+      body: Observer(
+        builder: (_) {
+          if (controller.vehicles.error != null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('ERRO: ${controller.vehicles.error}'),
+                Center(
+                  child: RaisedButton(
+                    onPressed: () {
+                      controller.fetchVehicles();
+                    },
+                    child: Text('Tentar Novamente'),
+                  ),
+                ),
+              ],
+            );
+          } else if (controller.vehicles.value == null) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            var vehiclesList = controller.vehicles.value;
+
+            return ListView.builder(
+              itemCount: vehiclesList.length,
+              itemBuilder: (_, index) {
+                return ListTile(
+                  title: Text(vehiclesList[index].name),
+                );
+              },
+            );
+          }
+        },
       ),
     );
+
+//      SearchList();
+
+//      Scaffold(
+//      key: _scaffoldKey,
+//      drawer: NavDrawer(),
+//      body: SafeArea(
+//        child: Padding(
+//          padding: const EdgeInsets.only(top: 15, bottom: 15),
+//          child: Column(
+//            children: <Widget>[
+//              PageHeader(
+//                scaffoldKey: _scaffoldKey,
+//              ),
+//              StatusRow(),
+//              ScannerArea(),
+//            ],
+//          ),
+//        ),
+//      ),
+//    );
   }
 }
