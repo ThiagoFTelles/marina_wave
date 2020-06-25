@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marinawave/app/shared/components/nav_drawer.dart';
 import 'package:marinawave/app/shared/components/page_header.dart';
+import 'package:marinawave/app/shared/components/vehicle/vehicle_summary.dart';
+import 'package:marinawave/app/shared/models/vehicle_model.dart';
 import 'package:marinawave/app/utils/constants.dart';
 
 import 'vehicles_controller.dart';
@@ -49,6 +52,53 @@ class _VehiclesPageState
                     ),
                   ],
                 ),
+              ),
+              Observer(
+                builder: (_) {
+                  if (controller.vehicles.error != null) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text('ERRO: ${controller.vehicles.error}'),
+                        Center(
+                          child: RaisedButton(
+                            onPressed: () {
+                              controller.fetchVehicles();
+                            },
+                            child: Text('Tentar Novamente'),
+                          ),
+                        ),
+                      ],
+                    );
+                  } else if (controller.vehicles.value == null) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    List<VehicleModel> vehiclesList = controller.vehicles.value;
+
+                    return Expanded(
+                      child: ListView.builder(
+                        itemCount: 1,
+                        itemBuilder: (_, index) {
+                          return ListView(
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            physics: ScrollPhysics(),
+                            children: vehiclesList
+                                .map((vehicle) => VehicleSummary(
+                                      vehicleName: vehicle.name,
+                                      ownerName: vehicle.owner_name,
+                                      vehicleModel: vehicle.model,
+                                    ))
+                                .toList(),
+                          );
+//                  ListTile( title: Text(vehiclesList[index].name),);
+                        },
+                      ),
+                    );
+                  }
+                },
               ),
             ],
           ),

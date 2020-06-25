@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:marinawave/app/shared/components/vehicle/vehicle_summary.dart';
+import 'package:marinawave/app/shared/models/vehicle_model.dart';
 
 class SearchList extends StatefulWidget {
   SearchList({Key key}) : super(key: key);
@@ -24,9 +23,7 @@ class _SearchListState extends State<SearchList> {
 
   final TextEditingController _searchQuery = TextEditingController();
 
-  //TODO: Transformar _list em uma lista de Widget.
-  List _list;
-//  List<Widget> _list;
+  List<VehicleModel> _list;
   bool _IsSearching;
   String _searchText = "";
 
@@ -282,9 +279,9 @@ class _SearchListState extends State<SearchList> {
   List<VehicleSummary> _buildList() {
     return _list
         .map((vehicle) => VehicleSummary(
-              vehicleName: jsonDecode(vehicle)['name'],
-              ownerName: jsonDecode(vehicle)['owner_name'],
-              vehicleModel: jsonDecode(vehicle)['model'],
+              vehicleName: vehicle.name,
+              ownerName: vehicle.name,
+              vehicleModel: vehicle.name,
             ))
         .toList();
   }
@@ -293,16 +290,16 @@ class _SearchListState extends State<SearchList> {
     if (_searchText.isEmpty) {
       return _list
           .map((vehicle) => VehicleSummary(
-                vehicleName: jsonDecode(vehicle)['name'],
-                ownerName: jsonDecode(vehicle)['owner_name'],
-                vehicleModel: jsonDecode(vehicle)['model'],
+                vehicleName: vehicle.name,
+                ownerName: vehicle.name,
+                vehicleModel: vehicle.name,
               ))
           .toList();
     } else {
       List<Widget> _searchList = List();
       for (int i = 0; i < _list.length; i++) {
         print(_list.elementAt(i));
-        dynamic name = _list.elementAt(i)['name'];
+        dynamic name = _list.elementAt(i).name;
         print('>>>>>>>>>> name:');
         print(name);
         if (name.toLowerCase().contains(_searchText.toLowerCase())) {

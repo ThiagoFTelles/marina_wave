@@ -1,4 +1,3 @@
-import 'package:marinawave/app/shared/repositories/vehicles_repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'home_controller.g.dart';
@@ -6,20 +5,19 @@ part 'home_controller.g.dart';
 class HomeController = _HomeBase with _$HomeController;
 
 abstract class _HomeBase with Store {
-  VehiclesRepository repository;
-
-  @observable
-  var vehicles;
-
-  _HomeBase({this.repository}) {
-    fetchVehicles();
-  }
-
-  @action
-  fetchVehicles() {
-    print('fetchVehicles running');
-    vehicles = repository.getMarinaVehicles().asObservable();
-  }
+//  VehiclesRepository repository;
+//
+//  @observable
+//  var vehicles;
+//
+//  _HomeBase({this.repository}) {
+//    fetchVehicles();
+//  }
+//
+//  @action
+//  fetchVehicles() {
+//    vehicles = repository.getMarinaVehicles().asObservable();
+//  }
 
 //  final ILocalStorage storage = Modular.get();
 //

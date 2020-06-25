@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marinawave/app/utils/constants.dart';
+import 'package:marinawave/app/utils/widgets/flexible_text.dart';
 
 class VehicleSummary extends StatelessWidget {
   final String vehicleName;
@@ -45,9 +46,9 @@ class VehicleSummary extends StatelessWidget {
                       '$vehicleName'.toUpperCase(),
                       style: kSummaryInfoTextStyle,
                     ),
-                    Text(
-                      '${'$vehicleModel'[0].toUpperCase()}${'$vehicleModel'.substring(1).toLowerCase()}',
+                    FlexibleText(
                       style: kSummaryInfoTextStyle,
+                      text: '$ownerName'.toUpperCase(),
                     ),
                   ],
                 ),
@@ -56,9 +57,9 @@ class VehicleSummary extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  '$ownerName'.toUpperCase(),
+                FlexibleText(
                   style: kSummaryHeaderTextStyle,
+                  text: '$ownerName'.toUpperCase(),
                 ),
                 Checkbox(
                   //TODO: colocar este checkbox em um widget separado com um controller
