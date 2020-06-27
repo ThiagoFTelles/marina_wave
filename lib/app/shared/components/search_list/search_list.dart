@@ -282,6 +282,7 @@ class _SearchListState extends State<SearchList> {
               vehicleName: vehicle.name,
               ownerName: vehicle.name,
               vehicleModel: vehicle.name,
+              selected: true,
             ))
         .toList();
   }
@@ -293,6 +294,7 @@ class _SearchListState extends State<SearchList> {
                 vehicleName: vehicle.name,
                 ownerName: vehicle.name,
                 vehicleModel: vehicle.name,
+                selected: true,
               ))
           .toList();
     } else {
@@ -307,6 +309,7 @@ class _SearchListState extends State<SearchList> {
             vehicleName: 'name2',
             ownerName: 'Dono',
             vehicleModel: 'RWXyyz2030',
+            selected: true,
           ));
         }
       }

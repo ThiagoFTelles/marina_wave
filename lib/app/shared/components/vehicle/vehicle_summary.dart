@@ -8,15 +8,21 @@ class VehicleSummary extends StatelessWidget {
   final String vehicleName;
   final String ownerName;
   final String vehicleModel;
+  final bool selected;
 
-  VehicleSummary(
-      {@required this.vehicleName,
-      @required this.ownerName,
-      @required this.vehicleModel});
+  VehicleSummary({
+    @required this.vehicleName,
+    @required this.ownerName,
+    @required this.vehicleModel,
+    @required this.selected,
+  });
+
+  int maxStringSize(String string, int max) {
+    return string.length > max ? max : string.length;
+  }
 
   @override
   Widget build(BuildContext context) {
-//    return ListTile(title: Text(this.name));
     return Container(
       margin: EdgeInsets.all(10),
       child: FlatButton(
@@ -31,26 +37,41 @@ class VehicleSummary extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Image.asset(
-                    'assets/images/icon_estacionados.png',
-                    height: 50,
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      '$vehicleName'.toUpperCase(),
-                      style: kSummaryInfoTextStyle,
+                    Container(
+                      padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
+                      child: Image.asset(
+                        'assets/images/icon_estacionados.png',
+                        height: 35,
+                        color: kTextColor,
+                      ),
                     ),
-                    FlexibleText(
-                      style: kSummaryInfoTextStyle,
-                      text: '$ownerName'.toUpperCase(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          '$vehicleName'.toUpperCase(),
+                          style: kSummaryInfoTextStyle,
+                        ),
+                        Text(
+                          '${vehicleModel.substring(1, maxStringSize('$vehicleModel', 14))}${vehicleModel.length > 14 ? '...' : ''}',
+                          style: kSummaryInfoTextStyle,
+                        ),
+                      ],
                     ),
                   ],
+                ),
+                Container(
+                  child: Checkbox(
+                    onChanged: (value) {
+                      print('xxxxxxxxxxxxxxxxxx');
+                    },
+                    value: selected,
+                  ),
                 ),
               ],
             ),
@@ -61,11 +82,6 @@ class VehicleSummary extends StatelessWidget {
                   style: kSummaryHeaderTextStyle,
                   text: '$ownerName'.toUpperCase(),
                 ),
-                Checkbox(
-                  //TODO: colocar este checkbox em um widget separado com um controller
-                  onChanged: (bool value) {},
-                  value: false,
-                )
               ],
             ),
           ],

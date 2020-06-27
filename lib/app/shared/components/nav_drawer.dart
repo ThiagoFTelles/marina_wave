@@ -55,7 +55,7 @@ class NavDrawer extends StatelessWidget {
               ],
             ),
             decoration: BoxDecoration(
-              color: kVividBlue,
+              color: kLogoBlue,
             ),
           ),
           ListTile(

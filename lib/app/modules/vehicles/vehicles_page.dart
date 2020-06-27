@@ -45,21 +45,21 @@ class _VehiclesPageState
                       'Estacionados',
                       style: kHeaderTextStyle,
                     ),
-                    Image.asset(
-                      'assets/images/icon_estacionados.png',
-                      height: 50,
+                    Icon(
+                      Icons.search,
                       color: kTextColor,
+                      size: 40,
                     ),
                   ],
                 ),
               ),
               Observer(
                 builder: (_) {
-                  if (controller.vehicles.error != null) {
+                  if (controller.vehicleModelList.error != null) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('ERRO: ${controller.vehicles.error}'),
+                        Text('ERRO: ${controller.vehicleModelList.error}'),
                         Center(
                           child: RaisedButton(
                             onPressed: () {
@@ -70,12 +70,13 @@ class _VehiclesPageState
                         ),
                       ],
                     );
-                  } else if (controller.vehicles.value == null) {
+                  } else if (controller.vehicleModelList.value == null) {
                     return Center(
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    List<VehicleModel> vehiclesList = controller.vehicles.value;
+                    List<VehicleModel> vehicleModelList =
+                        controller.vehicleModelList.value;
 
                     return Expanded(
                       child: ListView.builder(
@@ -85,11 +86,13 @@ class _VehiclesPageState
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
                             physics: ScrollPhysics(),
-                            children: vehiclesList
+                            children: controller.vehiclesMap.values
                                 .map((vehicle) => VehicleSummary(
-                                      vehicleName: vehicle.name,
-                                      ownerName: vehicle.owner_name,
-                                      vehicleModel: vehicle.model,
+                                      vehicleName: vehicle['name'],
+                                      ownerName: vehicle['owner_name'],
+                                      vehicleModel: vehicle['model'],
+                                      selected: vehicle['selected'] ?? false,
+//                                      checkboxFunction: (){},
                                     ))
                                 .toList(),
                           );

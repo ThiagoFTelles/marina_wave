@@ -18,6 +18,7 @@ class VehicleModel {
   String gas_percentage;
   String navigation_hours;
   String belongings;
+  bool selected = false;
 
   VehicleModel(
       {@required this.id,
@@ -36,7 +37,8 @@ class VehicleModel {
       this.deleted_at,
       this.gas_percentage,
       this.navigation_hours,
-      this.belongings});
+      this.belongings,
+      this.selected});
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) {
     return VehicleModel(

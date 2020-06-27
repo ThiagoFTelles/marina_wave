@@ -9,18 +9,34 @@ part of 'vehicles_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$VehiclesController on _VehiclesControllerBase, Store {
-  final _$vehiclesAtom = Atom(name: '_VehiclesControllerBase.vehicles');
+  final _$vehicleModelListAtom =
+      Atom(name: '_VehiclesControllerBase.vehicleModelList');
 
   @override
-  dynamic get vehicles {
-    _$vehiclesAtom.reportRead();
-    return super.vehicles;
+  dynamic get vehicleModelList {
+    _$vehicleModelListAtom.reportRead();
+    return super.vehicleModelList;
   }
 
   @override
-  set vehicles(dynamic value) {
-    _$vehiclesAtom.reportWrite(value, super.vehicles, () {
-      super.vehicles = value;
+  set vehicleModelList(dynamic value) {
+    _$vehicleModelListAtom.reportWrite(value, super.vehicleModelList, () {
+      super.vehicleModelList = value;
+    });
+  }
+
+  final _$vehiclesMapAtom = Atom(name: '_VehiclesControllerBase.vehiclesMap');
+
+  @override
+  Map<String, dynamic> get vehiclesMap {
+    _$vehiclesMapAtom.reportRead();
+    return super.vehiclesMap;
+  }
+
+  @override
+  set vehiclesMap(Map<String, dynamic> value) {
+    _$vehiclesMapAtom.reportWrite(value, super.vehiclesMap, () {
+      super.vehiclesMap = value;
     });
   }
 
@@ -39,9 +55,21 @@ mixin _$VehiclesController on _VehiclesControllerBase, Store {
   }
 
   @override
+  dynamic switchCheck() {
+    final _$actionInfo = _$_VehiclesControllerBaseActionController.startAction(
+        name: '_VehiclesControllerBase.switchCheck');
+    try {
+      return super.switchCheck();
+    } finally {
+      _$_VehiclesControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-vehicles: ${vehicles}
+vehicleModelList: ${vehicleModelList},
+vehiclesMap: ${vehiclesMap}
     ''';
   }
 }

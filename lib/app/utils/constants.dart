@@ -18,13 +18,13 @@ final kScaffoldBackgroundColor = Color(0xFF0A0E21);
 
 const kSummaryInfoTextStyle = TextStyle(
   fontSize: 21.0,
-  color: Colors.white,
+  color: kTextColor,
 );
 
 const kSummaryHeaderTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
   fontWeight: FontWeight.bold,
-  fontSize: 30,
+  fontSize: 25,
 );
 
 const kLabelTextStyle = TextStyle(
@@ -40,6 +40,7 @@ const kNumberTextStyle = TextStyle(
 const kHeaderTextStyle = TextStyle(
   fontSize: 35.0,
   fontWeight: FontWeight.bold,
+  color: kTextColor,
 );
 
 const kSendButtonTextStyle = TextStyle(

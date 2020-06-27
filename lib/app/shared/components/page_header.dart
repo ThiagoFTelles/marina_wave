@@ -21,6 +21,7 @@ class PageHeader extends StatelessWidget {
             ),
           ),
           FlatButton(
+            padding: EdgeInsets.all(0),
             onPressed: () {
               Modular.to.pushNamed("/");
             },
