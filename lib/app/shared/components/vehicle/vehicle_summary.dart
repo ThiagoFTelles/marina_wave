@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marinawave/app/modules/vehicles/vehicles_controller.dart';
+import 'package:marinawave/app/shared/components/checkbox/checkbox_widget.dart';
 import 'package:marinawave/app/utils/constants.dart';
 import 'package:marinawave/app/utils/widgets/flexible_text.dart';
 
@@ -10,16 +10,17 @@ class VehicleSummary extends StatelessWidget {
   final String ownerName;
   final String model;
   final bool selected;
-  final String uuid;
-  final VehiclesController controller = Modular.get();
+  final int index;
 
   VehicleSummary({
     @required this.vehicleName,
     @required this.ownerName,
     @required this.model,
     @required this.selected,
-    @required this.uuid,
+    @required this.index,
   });
+
+//  static VehiclesController vehiclesController = Modular.get();
 
   int maxStringSize(String string, int max) {
     return string.length > max ? max : string.length;
@@ -69,14 +70,8 @@ class VehicleSummary extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  child: Checkbox(
-                    onChanged: (bool selected) {
-                      controller.selectVehicleWidget(uuid: uuid);
-                      print('Checkbox changed to $selected');
-                    },
-                    value: selected,
-                  ),
+                CheckboxWidget(
+                  index: index,
                 ),
               ],
             ),

@@ -80,24 +80,22 @@ class _VehiclesPageState
 
                     return Expanded(
                       child: ListView.builder(
-                        itemCount: 1,
-                        itemBuilder: (_, index) {
-                          return ListView(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: ScrollPhysics(),
-                            children: vehicleModelList
-                                .map((vehicle) => VehicleSummary(
-                                      vehicleName: vehicle.name,
-                                      ownerName: vehicle.owner_name,
-                                      model: vehicle.model,
-                                      selected: vehicle.selected,
-                                      uuid: vehicle.uuid,
-//                                      checkboxFunction: (){},
-                                    ))
-                                .toList(),
-                          );
-//                  ListTile( title: Text(vehiclesList[index].name),);
+                        itemCount: vehicleModelList.length,
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        physics: ScrollPhysics(),
+                        itemBuilder: (_, int index) {
+                          return Observer(
+                              key: Key(vehicleModelList[index].uuid),
+                              builder: (_) {
+                                return VehicleSummary(
+                                    vehicleName: vehicleModelList[index].name,
+                                    ownerName:
+                                        vehicleModelList[index].owner_name,
+                                    model: vehicleModelList[index].model,
+                                    selected: vehicleModelList[index].selected,
+                                    index: index);
+                              });
                         },
                       ),
                     );

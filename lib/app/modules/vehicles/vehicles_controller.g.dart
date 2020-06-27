@@ -44,9 +44,9 @@ mixin _$VehiclesController on _VehiclesControllerBase, Store {
       AsyncAction('_VehiclesControllerBase.selectVehicleWidget');
 
   @override
-  Future selectVehicleWidget({String uuid}) {
+  Future selectVehicleWidget({int index}) {
     return _$selectVehicleWidgetAsyncAction
-        .run(() => super.selectVehicleWidget(uuid: uuid));
+        .run(() => super.selectVehicleWidget(index: index));
   }
 
   final _$_VehiclesControllerBaseActionController =

@@ -65,9 +65,11 @@ abstract class _VehiclesControllerBase with Store {
   };
 
   @action
-  selectVehicleWidget({String uuid}) async {
-    print(await vehicleModelList.value[0].name);
-    vehicleModelList.value[0].selected = true;
+  selectVehicleWidget({int index}) async {
+    print(index);
+    print(await vehicleModelList.value[index].name);
+    bool selectValue = await vehicleModelList.value[index].selected;
+    vehicleModelList.value[index].selected = !selectValue;
 //    final selectedVehicleModel =
 //        vehicleModelList.firstWhere((item) => item.uuid == uuid, orElse: null);
 //    if (selectedVehicleModel != null) {
