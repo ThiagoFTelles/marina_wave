@@ -42,24 +42,24 @@ class VehicleModel {
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) {
     return VehicleModel(
-      id: json['id'],
-      uuid: json['uuid'],
-      name: json['name'],
-      owner_name: json['owner_name'],
-      status: json['status'],
-      last_run: json['last_run'],
-      brand: json['brand'],
-      model: json['model'],
-      year: json['year'],
-      register_number: json['register_number'],
-      marina_id: json['marina_id'],
-      created_at: json['created_at'],
-      updated_at: json['updated_at'],
-      deleted_at: json['deleted_at'],
-      gas_percentage: json['gas_percentage'],
-      navigation_hours: json['navigation_hours'],
-      belongings: json['belongings'],
-    );
+        id: json['id'],
+        uuid: json['uuid'],
+        name: json['name'],
+        owner_name: json['owner_name'],
+        status: json['status'],
+        last_run: json['last_run'],
+        brand: json['brand'],
+        model: json['model'],
+        year: json['year'],
+        register_number: json['register_number'],
+        marina_id: json['marina_id'],
+        created_at: json['created_at'],
+        updated_at: json['updated_at'],
+        deleted_at: json['deleted_at'],
+        gas_percentage: json['gas_percentage'],
+        navigation_hours: json['navigation_hours'],
+        belongings: json['belongings'],
+        selected: false);
   }
 
   Map<String, dynamic> toJson() => {};

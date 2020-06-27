@@ -86,12 +86,13 @@ class _VehiclesPageState
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
                             physics: ScrollPhysics(),
-                            children: controller.vehiclesMap.values
+                            children: vehicleModelList
                                 .map((vehicle) => VehicleSummary(
-                                      vehicleName: vehicle['name'],
-                                      ownerName: vehicle['owner_name'],
-                                      vehicleModel: vehicle['model'],
-                                      selected: vehicle['selected'] ?? false,
+                                      vehicleName: vehicle.name,
+                                      ownerName: vehicle.owner_name,
+                                      model: vehicle.model,
+                                      selected: vehicle.selected,
+                                      uuid: vehicle.uuid,
 //                                      checkboxFunction: (){},
                                     ))
                                 .toList(),

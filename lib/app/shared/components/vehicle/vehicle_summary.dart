@@ -1,20 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marinawave/app/modules/vehicles/vehicles_controller.dart';
 import 'package:marinawave/app/utils/constants.dart';
 import 'package:marinawave/app/utils/widgets/flexible_text.dart';
 
 class VehicleSummary extends StatelessWidget {
   final String vehicleName;
   final String ownerName;
-  final String vehicleModel;
+  final String model;
   final bool selected;
+  final String uuid;
+  final VehiclesController controller = Modular.get();
 
   VehicleSummary({
     @required this.vehicleName,
     @required this.ownerName,
-    @required this.vehicleModel,
+    @required this.model,
     @required this.selected,
+    @required this.uuid,
   });
 
   int maxStringSize(String string, int max) {
@@ -58,7 +62,7 @@ class VehicleSummary extends StatelessWidget {
                           style: kSummaryInfoTextStyle,
                         ),
                         Text(
-                          '${vehicleModel.substring(1, maxStringSize('$vehicleModel', 14))}${vehicleModel.length > 14 ? '...' : ''}',
+                          '${model.substring(1, maxStringSize('$model', 14))}${model.length > 14 ? '...' : ''}',
                           style: kSummaryInfoTextStyle,
                         ),
                       ],
@@ -67,8 +71,9 @@ class VehicleSummary extends StatelessWidget {
                 ),
                 Container(
                   child: Checkbox(
-                    onChanged: (value) {
-                      print('xxxxxxxxxxxxxxxxxx');
+                    onChanged: (bool selected) {
+                      controller.selectVehicleWidget(uuid: uuid);
+                      print('Checkbox changed to $selected');
                     },
                     value: selected,
                   ),

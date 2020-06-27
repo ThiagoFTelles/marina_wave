@@ -40,6 +40,15 @@ mixin _$VehiclesController on _VehiclesControllerBase, Store {
     });
   }
 
+  final _$selectVehicleWidgetAsyncAction =
+      AsyncAction('_VehiclesControllerBase.selectVehicleWidget');
+
+  @override
+  Future selectVehicleWidget({String uuid}) {
+    return _$selectVehicleWidgetAsyncAction
+        .run(() => super.selectVehicleWidget(uuid: uuid));
+  }
+
   final _$_VehiclesControllerBaseActionController =
       ActionController(name: '_VehiclesControllerBase');
 
@@ -55,11 +64,11 @@ mixin _$VehiclesController on _VehiclesControllerBase, Store {
   }
 
   @override
-  dynamic switchCheck() {
+  dynamic switchSelect() {
     final _$actionInfo = _$_VehiclesControllerBaseActionController.startAction(
-        name: '_VehiclesControllerBase.switchCheck');
+        name: '_VehiclesControllerBase.switchSelect');
     try {
-      return super.switchCheck();
+      return super.switchSelect();
     } finally {
       _$_VehiclesControllerBaseActionController.endAction(_$actionInfo);
     }

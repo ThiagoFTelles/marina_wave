@@ -23,7 +23,7 @@ abstract class _VehiclesControllerBase with Store {
   @observable
   Map<String, dynamic> vehiclesMap = {
     "f94ff19f-9abe-45e9-98f1-898a5f6d0b0d": {
-      "checked": false,
+      "selected": false,
       "id": "1",
       "uuid": "f94ff19f-9abe-45e9-98f1-898a5f6d0b0d",
       "name": "Hulk",
@@ -43,7 +43,7 @@ abstract class _VehiclesControllerBase with Store {
       "belongings": "1 Colete."
     },
     "12ac8e5a-2428-4e76-9485-2f3905c247c5": {
-      "checked": false,
+      "selected": true,
       "id": "2",
       "uuid": "12ac8e5a-2428-4e76-9485-2f3905c247c5",
       "name": "Flexa",
@@ -65,9 +65,24 @@ abstract class _VehiclesControllerBase with Store {
   };
 
   @action
-  switchCheck() {
+  selectVehicleWidget({String uuid}) async {
+    print(await vehicleModelList.value[0].name);
+    vehicleModelList.value[0].selected = true;
+//    final selectedVehicleModel =
+//        vehicleModelList.firstWhere((item) => item.uuid == uuid, orElse: null);
+//    if (selectedVehicleModel != null) {
+//      selectedVehicleModel.selected = true;
+//    }
+  }
+
+  @action
+  switchSelect() {
     //TODO: fazer uma lista com os uuids selecionados e depois alterar o status deles
-    vehiclesMap['f94ff19f-9abe-45e9-98f1-898a5f6d0b0d']['checked'] = true;
+//    vehiclesMap['f94ff19f-9abe-45e9-98f1-898a5f6d0b0d']['selected'] = true;
+    dynamic value = vehicleModelList;
+    print('value');
+    print(value);
+//    vehicleModelList[0]['selected'] = !value;
     print('switchCheck()');
   }
 

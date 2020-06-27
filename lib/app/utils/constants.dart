@@ -24,7 +24,7 @@ const kSummaryInfoTextStyle = TextStyle(
 const kSummaryHeaderTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
   fontWeight: FontWeight.bold,
-  fontSize: 25,
+  fontSize: 23,
 );
 
 const kLabelTextStyle = TextStyle(

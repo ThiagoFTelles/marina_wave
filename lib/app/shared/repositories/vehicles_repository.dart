@@ -63,8 +63,6 @@ class VehiclesRepository {
       );
       vehicleModelList.add(vehicle);
     }
-
-    print(vehiclesMap);
     return vehicleModelList;
   }
 }
