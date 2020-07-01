@@ -18,27 +18,27 @@ class VehicleModel {
   String gas_percentage;
   String navigation_hours;
   String belongings;
-  bool selected = false;
+  bool checked = false;
 
-  VehicleModel(
-      {@required this.id,
-      @required this.uuid,
-      @required this.name,
-      @required this.owner_name,
-      @required this.status,
-      this.last_run,
-      @required this.brand,
-      @required this.model,
-      this.year,
-      @required this.register_number,
-      this.marina_id,
-      @required this.created_at,
-      this.updated_at,
-      this.deleted_at,
-      this.gas_percentage,
-      this.navigation_hours,
-      this.belongings,
-      this.selected});
+  VehicleModel({
+    @required this.id,
+    @required this.uuid,
+    @required this.name,
+    @required this.owner_name,
+    @required this.status,
+    this.last_run,
+    @required this.brand,
+    @required this.model,
+    this.year,
+    @required this.register_number,
+    this.marina_id,
+    @required this.created_at,
+    this.updated_at,
+    this.deleted_at,
+    this.gas_percentage,
+    this.navigation_hours,
+    this.belongings,
+  });
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) {
     return VehicleModel(
@@ -58,8 +58,7 @@ class VehicleModel {
         deleted_at: json['deleted_at'],
         gas_percentage: json['gas_percentage'],
         navigation_hours: json['navigation_hours'],
-        belongings: json['belongings'],
-        selected: false);
+        belongings: json['belongings']);
   }
 
   Map<String, dynamic> toJson() => {};

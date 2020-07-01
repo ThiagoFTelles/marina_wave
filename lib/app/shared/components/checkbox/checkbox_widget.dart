@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marinawave/app/modules/vehicles/vehicles_controller.dart';
+import 'package:marinawave/app/utils/constants.dart';
 
 class CheckboxWidget extends StatefulWidget {
-  final int index;
+  final String uuid;
 
-  CheckboxWidget({Key key, @required this.index}) : super(key: key);
+  CheckboxWidget({Key key, @required this.uuid}) : super(key: key);
 
   @override
   _CheckboxWidgetState createState() => _CheckboxWidgetState();
@@ -14,23 +14,23 @@ class CheckboxWidget extends StatefulWidget {
 
 class _CheckboxWidgetState extends State<CheckboxWidget> {
   final VehiclesController vehiclesController = Modular.get();
+  bool checked = false;
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      return Container(
-        child: Checkbox(
-          onChanged: (bool selected) {
-            vehiclesController.selectVehicleWidget(index: widget.index);
-            print('Checkbox changed to $selected');
-          },
-          value:
-              vehiclesController.vehicleModelList.value[widget.index].selected,
-        ),
-//        Text(vehiclesController
-//            .vehicleModelList.value[index].selected
-//            .toString()),
-      );
-    });
+    return Container(
+      child: Checkbox(
+        activeColor: kLogoBlue,
+        onChanged: (bool newCheckedValue) {
+          setState(() {
+            checked = newCheckedValue;
+          });
+          newCheckedValue
+              ? vehiclesController.selectVehicle(uuid: widget.uuid)
+              : vehiclesController.deselectedVehicle(uuid: widget.uuid);
+        },
+        value: checked,
+      ),
+    );
   }
 }
