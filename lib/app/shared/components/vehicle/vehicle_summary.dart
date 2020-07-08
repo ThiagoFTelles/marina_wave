@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marinawave/app/modules/vehicles/vehicles_controller.dart';
@@ -31,7 +30,7 @@ class VehicleSummary extends StatelessWidget {
       margin: EdgeInsets.all(10),
       child: FlatButton(
         onPressed: () {
-          Modular.to.pushNamed("/");
+          Modular.to.pushNamed("/vehicle");
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
