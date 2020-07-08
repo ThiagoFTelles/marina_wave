@@ -23,20 +23,22 @@ class HoursArea extends StatelessWidget {
             size: 30,
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          mainAxisAlignment: MainAxisAlignment.center,
+          textBaseline: TextBaseline.alphabetic,
           children: <Widget>[
             Text(
               '120',
               style: TextStyle(
-                fontSize: 75.0,
+                fontSize: 53.0,
                 fontWeight: FontWeight.w300,
               ),
             ),
             Text(
               'HORAS',
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 15,
               ),
             ),
           ],

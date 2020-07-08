@@ -9,7 +9,7 @@ class VehicleHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Icon(
-            Icons.edit,
+            Icons.arrow_back,
             size: 30,
           ),
           Text(
@@ -21,7 +21,7 @@ class VehicleHeader extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.delete,
+            Icons.edit,
             size: 30,
           ),
         ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marinawave/app/modules/vehicle/components/belongings_area.dart';
 import 'package:marinawave/app/modules/vehicle/components/fuel_area.dart';
 import 'package:marinawave/app/modules/vehicle/components/hours_area.dart';
+import 'package:marinawave/app/modules/vehicle/components/vehicle_footer.dart';
 import 'package:marinawave/app/modules/vehicle/components/vehicle_header.dart';
 
 import 'vehicle_controller.dart';
@@ -15,8 +17,6 @@ class VehiclePage extends StatefulWidget {
 }
 
 class _VehiclePageState extends ModularState<VehiclePage, VehicleController> {
-  //use 'controller' variable to access controller
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,6 +26,8 @@ class _VehiclePageState extends ModularState<VehiclePage, VehicleController> {
             VehicleHeader(),
             HoursArea(),
             FuelArea(),
+            BelongingsArea(),
+            VehicleFooter(),
           ],
         ),
       ),
