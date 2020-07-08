@@ -25,7 +25,9 @@ class _FuelAreaState extends State<FuelArea> {
               axisLabelStyle: GaugeTextStyle(fontSize: 18, color: kTextColor),
               labelOffset: 15,
               showTicks: true,
-              minorTicksPerInterval: 1,
+              minorTicksPerInterval: 4,
+              minorTickStyle: MinorTickStyle(
+                  color: Colors.white30, length: 3, thickness: 1),
               canScaleToFit: true,
               tickOffset: 10,
               minimum: 0,
