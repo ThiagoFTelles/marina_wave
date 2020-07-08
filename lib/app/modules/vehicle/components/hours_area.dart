@@ -17,7 +17,8 @@ class HoursArea extends StatelessWidget {
             ),
           ),
           padding: EdgeInsets.all(
-              10.0), // optional, in order to add additional space around text if needed
+            10,
+          ), // optional, in order to add additional space around text if needed
           child: Icon(
             Icons.add,
             size: 30,
@@ -29,18 +30,23 @@ class HoursArea extends StatelessWidget {
           textBaseline: TextBaseline.alphabetic,
           children: <Widget>[
             Text(
-              '120',
+              '120 ',
               style: TextStyle(
                 fontSize: 53.0,
                 fontWeight: FontWeight.w300,
               ),
             ),
-            Text(
-              'HORAS',
-              style: TextStyle(
-                fontSize: 15,
-              ),
+            Icon(
+              Icons.query_builder,
+              size: 35,
+              color: Colors.white70,
             ),
+//            Text(
+//              'HORAS',
+//              style: TextStyle(
+//                fontSize: 15,
+//              ),
+//            ),
           ],
         ),
         RawMaterialButton(

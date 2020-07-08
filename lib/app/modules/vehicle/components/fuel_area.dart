@@ -91,10 +91,15 @@ class _FuelAreaState extends State<FuelArea> {
                         style: TextStyle(
                             fontSize: 48, fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        "COMBUSTÍVEL",
-                        style: TextStyle(fontSize: 15.0, color: Colors.white),
+                      Icon(
+                        Icons.local_gas_station,
+                        size: 45,
+                        color: Colors.white70,
                       ),
+//                      Text(
+//                        "COMBUSTÍVEL",
+//                        style: TextStyle(fontSize: 15.0, color: Colors.white),
+//                      ),
                     ],
                   ),
                   angle: 90,
