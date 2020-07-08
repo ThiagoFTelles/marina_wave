@@ -30,9 +30,10 @@ class _FuelAreaState extends State<FuelArea> {
               tickOffset: 10,
               minimum: 0,
               maximum: 100.5,
-              onAxisTapped: (value) {
+              onAxisTapped: (double newValue) {
                 setState(() {
-                  fuelValue = value;
+                  double roundedValue = (newValue / 10).roundToDouble() * 10;
+                  fuelValue = roundedValue;
                 });
               },
               ranges: <GaugeRange>[
@@ -74,9 +75,18 @@ class _FuelAreaState extends State<FuelArea> {
                       fuelValue = newValue.value;
                     });
                   },
+                  onValueChangeEnd: (double newValue) {
+                    setState(() {
+                      double roundedValue =
+                          (newValue / 10).roundToDouble() * 10;
+                      fuelValue = roundedValue;
+                    });
+                  },
                   onValueChanged: (double newValue) {
                     setState(() {
-                      fuelValue = newValue;
+                      double roundedValue =
+                          (newValue / 10).roundToDouble() * 10;
+                      fuelValue = roundedValue;
                     });
                   },
                 ),
